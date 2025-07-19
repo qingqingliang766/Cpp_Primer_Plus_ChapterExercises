@@ -5,9 +5,18 @@ Enter your first name: Flip
 Enter your last name: Fleming  
 Here's the information in a single string: Fleming, Flip  */
 #include <iostream>
-
+#include <string>
 int main()
 {   
-    
+    using std::getline;
+    using std::cout;
+    using std::cin;
+    char firstname[5];
+    char lastname[5];
+    cout << "Enter your first name: " << std::endl;
+    cin.getline(firstname,5);
+    cin.getline(lastname,5);
+    cout << "Here's the information in a single string:" << firstname << "," 
+        << lastname << std::endl;
     return 0;
 }
