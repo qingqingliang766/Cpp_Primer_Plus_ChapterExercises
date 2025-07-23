@@ -10,6 +10,17 @@ You entered a total of 7 words.
 #include <cstring>
 using namespace std;
 int main()
-{
-
+{   
+    char words[100][20]; // 增加单词存储长度以避免溢出
+    int number =0;
+    while (true)
+    {
+        cout << "请输入一个单词(输入done终止)： " << endl;
+        cin >> words[number];
+        if (!strcmp(words[number],"done"))break;
+        number++;
+    }
+    cout << "You entered a total of " << number << " words." << endl;
+    return 0;
+    
 }
