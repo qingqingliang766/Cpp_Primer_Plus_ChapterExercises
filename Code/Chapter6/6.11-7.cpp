@@ -12,7 +12,14 @@ quietly across 15 meters of lawn. q
 #include <cctype>
 using namespace std;
 int main()
-{
+{   
+    const int arsize = 100;
+    char words[arsize];
+    cout << "请输入一个单词：" << endl;
+    while (cin.getline())
+    {
+        /* code */
+    }
     
     return 0;
 }
