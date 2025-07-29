@@ -53,6 +53,9 @@
         "array": "cpp",
         "fstream": "cpp",
         "print": "cpp",
-        "string": "cpp"
-    }
+        "string": "cpp",
+        "algorithm": "cpp",
+        "optional": "cpp"
+    },
+    "C_Cpp.errorSquiggles": "enabled"
 }
