@@ -8,19 +8,44 @@
 - 计算平均成绩（计算平均成绩）。*/
 #include <iostream>
 #include <array>
+std::array<double,10> input(int& count);
+void show(std::array<double,10>& score,int count);
+double average(std::array<double,10>& score,int& count);
 int main()
 {
+    int count = 0;
+    std::array<double,10> score = input(count);
+    show(score,count);
+    average(score,count);
     return 0;
 }
-input()
+std::array<double,10> input(int& count)
 {
-    std::array <double,10> count;
+    std::array <double,10> score;
     int i = 0;
     std::cout << "请输入成绩（输入0退出）\n";
-    while (std::cin >> count[i])
+    while (i<10)
     {
-        if(count[i] == 0)break;
+        std::cin >> score[i];
+        if(score[i] == 0)break;
         i++;
     }
-    
+    count = i;
+    return score;
+}
+void show(std::array<double,10>& score,int count)
+{
+    std::cout << "显示所有成绩： " << std::endl;
+    for(int i = 0; i < count; i++)
+    std::cout << score[i] << " ";
+}
+double average(std::array<double,10>& score,int& count)
+{
+    double sum = 0;
+    double average = 0;
+    for(int i = 0; i < count; i++)
+    sum += score[i];
+    average = sum / count;
+    std::cout << std::endl << average;
+    return average;
 }
