@@ -1,5 +1,5 @@
-/*
-9. 练习：编写处理模板和结构的函数，补全以下程序框架：
+
+//9. 练习：编写处理模板和结构的函数，补全以下程序框架：
 #include<iostream>
 using namespace std;
 const int LEN = 30;
@@ -44,7 +44,7 @@ int main()
     // 调用 getinfo 填充数据，返回实际输入的学生数
     int entered = getinfo(ptr_stu, class_size);  
     // 显示所有学生信息
-    display3(ptr_stu, entered);  
+    display3(ptr_stu, entered);
     // 释放内存
     delete[] ptr_stu;  
     cout << "Done\n";
@@ -57,4 +57,47 @@ int main()
 // display3(ptr_stu, entered);  
 // delete[] ptr_stu;  
 // return 0;  
-// }*/
+// }
+int getinfo(student pa[], int n)
+{
+    int count = 0;
+    for (int i = 0; i < n; i++)
+    {
+        cout << "请输入你的姓名： " << endl;
+        cin >> pa[i].fullname;
+        cout << "请输入你的爱好： " << endl;
+        cin >> pa[i].hobby;
+        cout << "请输入你的水平： " << endl;
+        cin >> pa[i].ooplevel;
+        count++;
+    }
+    
+    return count;
+}
+
+void display1(student st)
+{
+    cout << "显示其内容" << endl;
+    cout << st.fullname << endl;
+    cout << st.hobby << endl;
+    cout << st.ooplevel << endl;
+}
+
+void display2(const student* ps)
+{
+    cout << "显示其内容" << endl;
+    cout << ps->fullname << endl;
+    cout << ps->hobby << endl;
+    cout << ps->ooplevel << endl;
+}
+
+void display3(const student pa[], int n)
+{
+    for (int i = 0; i < n; i++)
+    {
+        cout << pa[i].fullname << endl;
+        cout << pa[i].hobby << endl;
+        cout << pa[i].ooplevel << endl;
+    }
+}
+
