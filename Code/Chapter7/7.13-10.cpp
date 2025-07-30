@@ -13,9 +13,11 @@ double add(double x, double y)
 double q = calculate(2.5, 10.4, add);
  
 编程要求：
-- 编写程序，调用  calculate() 、 add() ，以及至少一个类似  add()  的函数（如  subtract 、 multiply  等）。
+- 编写程序，调用  calculate() 、 add() ，以及至少一个类似  add()  的函数
+（如  subtract 、 multiply  等）。
 - 用循环让用户成对输入数字，对每对数字，调用  calculate()  测试所有函数。
-- （进阶）创建 函数指针数组（如  double (*pf[3])(double, double); ），用初始化语法填入函数地址，循环调用  calculate()  测试数组内的函数。
+- （进阶）创建 函数指针数组（如  double (*pf[3])(double, double); ），
+用初始化语法填入函数地址，循环调用  calculate()  测试数组内的函数。
  
 提示：
 // 函数指针数组示例（可初始化）：  
@@ -23,3 +25,50 @@ double (*pf[3])(double, double);
 // 可通过函数名（地址）初始化，如：  
 pf[0] = add;  
 pf[1] = subtract; */
+#include <iostream>
+double add(double x, double y);
+double multiply(double x, double y);
+double calculate(double x, double y ,double (*func)(double,double));
+int main()
+{
+    double x;
+    double y;
+    while (true)
+    {
+        std::cout << "请输入第1个数字：\n";
+        if (!(std::cin >> x))
+        {
+            std::cin.clear();
+            std::cin.ignore();
+            break;
+        }
+        std::cout << "请输入第2个数字：\n";
+        if (!(std::cin >> y))
+        {
+            std::cin.clear();
+            std::cin.ignore();
+            break;
+        }
+        
+        double (*PI[2])(double,double) = {add,multiply};
+        for (int i = 0; i < 2;i++)
+        {
+            double number = calculate(x,y,PI[i]);
+            std::cout << "计算结果为： " << number << std::endl;
+        }
+    }
+    return 0;
+}
+
+double calculate(double x, double y ,double (*func)(double,double))
+{
+    return func(x,y);
+}
+double add(double x, double y)
+{
+    return x + y;
+}
+double multiply(double x, double y)
+{
+    return x * y;
+}

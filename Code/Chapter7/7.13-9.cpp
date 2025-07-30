@@ -64,7 +64,8 @@ int getinfo(student pa[], int n)
     for (int i = 0; i < n; i++)
     {
         cout << "请输入你的姓名： " << endl;
-        cin >> pa[i].fullname;
+        cin.getline(pa[i].fullname,LEN);
+        if (pa[i].fullname[0] == '\0')break;
         cout << "请输入你的爱好： " << endl;
         cin >> pa[i].hobby;
         cout << "请输入你的水平： " << endl;
