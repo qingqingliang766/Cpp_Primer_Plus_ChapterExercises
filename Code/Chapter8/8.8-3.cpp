@@ -9,3 +9,49 @@ GOOD GRIEF!
 Next string (q to quit): q
 Bye.
 */
+#include <iostream>
+#include <string>
+#include <cctype>
+void shiftwords(std::string& SW);
+int main()
+{
+    std::string words;
+    int first = 0;
+    while (true)
+    {
+        
+        if (0 == first)
+        {
+            std::cout << "Enter a string (q to quit):" << std::endl;
+            first++;
+            getline(std::cin,words);
+            // std::cin.ignore();
+            if(words == "q")
+            {
+                std::cout << "Bye.\n" ;
+                break;
+            }
+            shiftwords(words);
+        }
+        else
+        {
+            std::cout << "Next string (q to quit):" << std::endl;
+            getline(std::cin,words);
+            // std::cin.ignore();
+            if(words == "q")
+            {
+                std::cout << "Bye.\n" ;
+                break;
+            }
+            shiftwords(words);
+        }
+        
+    }
+    return 0;
+}
+void shiftwords(std::string& SW)
+{
+    for (int i = 0; i < SW.size(); i++)
+    SW[i] = toupper(SW[i]);
+    std::cout << SW << std::endl;
+}
