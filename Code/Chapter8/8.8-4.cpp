@@ -12,6 +12,9 @@ struct stringy {
 };
 
 // 在此处放置 set()、show() 和 show() 的函数原型 
+void set(stringy& beany, const char* testing);
+void show(const stringy& beany, int n = 1);
+void show(const char* testing, int n = 1);
 int main()
 {
     stringy beany;
@@ -29,5 +32,22 @@ int main()
     show(testing);      // 打印 testing 字符串一次 
     show(testing, 3);   // 打印 testing 字符串三次 
     show("Done!");      // 打印 "Done!" 字符串一次 
+    delete[] beany.str;
     return 0;
+}
+void set(stringy& beany, const char* testing)
+{
+    beany.ct = strlen(testing);
+    beany.str = new char[beany.ct + 1];
+    strcpy(beany.str,testing);
+}
+void show(const stringy& beany, int n)
+{
+    for (int i = 0; i < n; i++)
+    cout << "打印成员字符串" << i+1 << "次 ："  << endl << beany.str << endl;
+}
+void show(const char* testing, int n)
+{
+    for (int i = 0; i < n; i++)
+    cout << "打印testing字符串" << i+1 << "次 ：" << endl << testing << endl;
 }
