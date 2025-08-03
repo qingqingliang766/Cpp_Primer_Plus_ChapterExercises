@@ -1,5 +1,5 @@
-/*
-1. 下面是一个头文件：
+
+//1. 下面是一个头文件：
 // golf.h -- 用于pe9-1.cpp
 
 const int Len = 40;
@@ -24,7 +24,7 @@ void handicap(golf & g, int hc);
 // 函数显示高尔夫结构体的内容
 void showgolf(const golf & g);
 
-注意到setgolf被重载，可以这样使用其第一个版本：  
+/*注意到setgolf被重载，可以这样使用其第一个版本：  
 golf ann;  
 setgolf(ann, "Ann Birdfree", 24);  
 上述函数调用提供了存储在ann结构中的信息。可以这样使用其第二个版本：  

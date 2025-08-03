@@ -1,4 +1,93 @@
 /*
 2. 修改程序清单9.9：用string对象代替字符数组。
 这样，该程序将不再需要检查输入的字符串是否过长，
-同时可以将输入字符串同空串`""`进行比较，以判断是否为空行*/
+同时可以将输入字符串同空串`""`进行比较，以判断是否为空行
+
+清单9.9cpp：
+// static.cpp -- using a static local variable
+#include <iostream>
+// constants
+const int ArSize = 10;
+// function prototype
+void strcount(const char * str);
+
+
+316
+C++ Primer Plus（第6版）中文版
+
+
+int main()
+{
+    using namespace std;
+    char input[ArSize];
+    char next;
+
+    cout << "Enter a line:\n";
+    cin.get(input, ArSize);
+    while (cin)
+    {
+        cin.get(next);
+        while (next != '\n')   // string didn't fit!
+            cin.get(next);     // dispose of remainder
+        strcount(input);
+        cout << "Enter next line (empty line to quit):\n";
+        cin.get(input, ArSize);
+    }
+    cout << "Bye\n";
+    return 0;
+}
+void strcount(const char * str)
+{
+    using namespace std;
+    static int total = 0;        // static local variable
+    int count = 0;               // automatic local variable
+
+    cout << "\"" << str << "\" contains ";
+    while (*str++)               // go to end of string
+        count++;
+    total += count;
+    cout << count << " characters\n";
+    cout << total << " characters total\n";
+}
+*/
+
+// static.cpp -- using a static local variable
+#include <iostream>
+// constants
+const int ArSize = 10;
+// function prototype
+void strcount(const char * str);
+
+int main()
+{
+    using namespace std;
+    char input[ArSize];
+    char next;
+
+    cout << "Enter a line:\n";
+    cin.get(input, ArSize);
+    while (cin)
+    {
+        cin.get(next);
+        while (next != '\n')   // string didn't fit!
+            cin.get(next);     // dispose of remainder
+        strcount(input);
+        cout << "Enter next line (empty line to quit):\n";
+        cin.get(input, ArSize);
+    }
+    cout << "Bye\n";
+    return 0;
+}
+void strcount(const char * str)
+{
+    using namespace std;
+    static int total = 0;        // static local variable
+    int count = 0;               // automatic local variable
+
+    cout << "\"" << str << "\" contains ";
+    while (*str++)               // go to end of string
+        count++;
+    total += count;
+    cout << count << " characters\n";
+    cout << total << " characters total\n";
+}
