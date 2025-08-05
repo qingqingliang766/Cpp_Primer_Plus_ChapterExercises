@@ -12,10 +12,6 @@ const int ArSize = 10;
 void strcount(const char * str);
 
 
-316
-C++ Primer Plus（第6版）中文版
-
-
 int main()
 {
     using namespace std;
@@ -53,40 +49,36 @@ void strcount(const char * str)
 
 // static.cpp -- using a static local variable
 #include <iostream>
-// constants
-const int ArSize = 10;
+#include <string>
 // function prototype
-void strcount(const char * str);
+void strcount(const std::string str);
 
 int main()
 {
     using namespace std;
-    char input[ArSize];
+    string input;
     char next;
 
     cout << "Enter a line:\n";
-    cin.get(input, ArSize);
-    while (cin)
+    while (true)
     {
-        cin.get(next);
-        while (next != '\n')   // string didn't fit!
-            cin.get(next);     // dispose of remainder
+        getline(cin,input);
+        if ("" == input)
+            break;
         strcount(input);
-        cout << "Enter next line (empty line to quit):\n";
-        cin.get(input, ArSize);
+
     }
     cout << "Bye\n";
     return 0;
 }
-void strcount(const char * str)
+void strcount(const std::string str)
 {
     using namespace std;
     static int total = 0;        // static local variable
     int count = 0;               // automatic local variable
 
     cout << "\"" << str << "\" contains ";
-    while (*str++)               // go to end of string
-        count++;
+    count = size(str);
     total += count;
     cout << count << " characters\n";
     cout << total << " characters total\n";
