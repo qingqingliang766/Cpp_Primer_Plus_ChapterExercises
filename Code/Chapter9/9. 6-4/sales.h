@@ -1,5 +1,5 @@
-#ifndef _SALES_H
-#define _SALES_H
+#ifndef SALES_H
+#define SALES_H
 namespace SALES
 {
     const int QUARTERS = 4;
